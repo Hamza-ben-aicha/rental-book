@@ -69,4 +69,5 @@ class ListingRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
 }

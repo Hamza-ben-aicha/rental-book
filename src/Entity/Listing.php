@@ -71,7 +71,7 @@ class Listing
     private $listingCategory;
 
     /**
-     * @ORM\OneToMany(targetEntity=ListingAmenity::class, mappedBy="listing")
+     * @ORM\OneToMany(targetEntity=ListingAmenity::class, mappedBy="listing",orphanRemoval=true)
      */
     private $listingAmenities;
 

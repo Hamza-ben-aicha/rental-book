@@ -1,0 +1,47 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <h2>Listings</h2>
+
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">full name</th>
+      <th scope="col">date</th>
+      <th scope="col">description</th>
+      <th scope="col">delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for listing in listings %}
+        {# <div>
+            <div >
+                Published on : {{listing.published|date('d/m/Y')}} at {{listing.published|date('H:i')}}
+                By : {{listing.user.firstname ~ " " ~ listing.user.lastname}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{listing.price}}</h5>
+                <p class="card-text">{{listing.description}}</p>
+                <a href="{{ path('single', {id: listing.id}) }}" class="btn btn-dark text-white">See more</a>
+                <a href="#" class="btn btn-dark text-white">delete</a>
+                <a href="#" class="btn btn-dark text-white">modifier</a>
+            </div>
+        </div> #}
+    <tr>
+      <td>{{listing.user.firstname ~ " " ~ listing.user.lastname}}</td>
+      <td>{{listing.published|date('d/m/Y')}} at {{listing.published|date('H:i')}}</td>
+      <td>{{listing.description}}</td>
+      
+      <td><a href="{{ path('delete_Post', {id: listing.id}) }}" class="btn btn-dark text-white">delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

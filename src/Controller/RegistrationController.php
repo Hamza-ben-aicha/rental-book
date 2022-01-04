@@ -20,7 +20,8 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
+        //$user->setRoles(['ROLE_SUPER_ADMIN']);
+        // adr : hamza@gmail.com -- pwd: 123456 -- role_super_admin
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
             $user->setPassword(
