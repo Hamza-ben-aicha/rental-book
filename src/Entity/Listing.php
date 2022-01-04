@@ -91,12 +91,18 @@ class Listing
      */
     private $listingAvailabilities;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Booking::class, mappedBy="listing")
+     */
+    private $bookings;
+
     public function __construct()
     {
         $this->listingAmenities = new ArrayCollection();
         $this->ratings = new ArrayCollection();
         $this->pictures = new ArrayCollection();
         $this->listingAvailabilities = new ArrayCollection();
+        $this->bookings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -377,5 +383,35 @@ class Listing
     public function __toString()
     {
     return (string) $this->listingCategory;
+    }
+
+    /**
+     * @return Collection|Booking[]
+     */
+    public function getBookings(): Collection
+    {
+        return $this->bookings;
+    }
+
+    public function addBooking(Booking $booking): self
+    {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings[] = $booking;
+            $booking->setListing($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBooking(Booking $booking): self
+    {
+        if ($this->bookings->removeElement($booking)) {
+            // set the owning side to null (unless already changed)
+            if ($booking->getListing() === $this) {
+                $booking->setListing(null);
+            }
+        }
+
+        return $this;
     }
 }

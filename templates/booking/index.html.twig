@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <h2>Post new listing:</h2>
+
+    {{ form_start(form) }}
+        {{ form_label(form.dateFrom) }}
+        {{ form_widget(form.dateFrom) }}
+
+        {{ form_label(form.dateUntil) }}
+        {{ form_widget(form.dateUntil) }}
+
+        {{ form_widget(form.enregistrer) }}
+    {{ form_end(form) }} 
+    {# <script>
+        const addTagLink = document.createElement('button')
+        addTagLink.classList.add('add_tag_list')
+        addTagLink.innerText = 'Add new amenity'
+        addTagLink.dataset.collectionHolderClass = 'listingAmenities'
+
+        const newLinkLi = document.createElement('li').append(addTagLink)
+
+        const collectionHolder = document.querySelector('ul.listingAmenities')
+        collectionHolder.appendChild(addTagLink)
+
+        const addFormToCollection = (e) => {
+            e.preventDefault();
+            const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+
+            const item = document.createElement('li');
+
+            item.innerHTML = collectionHolder
+                .dataset
+                .prototype
+                .replace(
+                /__name__/g,
+                collectionHolder.dataset.index
+                );
+
+            collectionHolder.appendChild(item);
+
+            collectionHolder.dataset.index++;
+        }
+
+        addTagLink.addEventListener("click", addFormToCollection)
+    </script>
+    <script>
+        const addTagLinkOne = document.createElement('button')
+        addTagLinkOne.classList.add('add_tag_list_1')
+        addTagLinkOne.innerText = 'Add new availability'
+        addTagLinkOne.dataset.collectionHolderClass = 'listingAvailabilities'
+
+        const newLinkLiOne = document.createElement('li').append(addTagLinkOne)
+
+        const collectionHolderOne = document.querySelector('ul.listingAvailabilities')
+        collectionHolderOne.appendChild(addTagLinkOne)
+
+        const addFormToCollectionOne = (e) => {
+            e.preventDefault();
+            const collectionHolderOne = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+
+            const item = document.createElement('li');
+
+            item.innerHTML = collectionHolderOne
+                .dataset
+                .prototype
+                .replace(
+                /__name__/g,
+                collectionHolderOne.dataset.index
+                );
+
+            collectionHolderOne.appendChild(item);
+
+            collectionHolderOne.dataset.index++;
+        }
+
+        addTagLinkOne.addEventListener("click", addFormToCollectionOne)
+    </script>
+    <script>
+        const addTagLinkTwo = document.createElement('button')
+        addTagLinkTwo.classList.add('add_tag_list_2')
+        addTagLinkTwo.innerText = 'Add new pictures'
+        addTagLinkTwo.dataset.collectionHolderClass = 'pictures'
+
+        const newLinkLiTwo = document.createElement('li').append(addTagLinkTwo)
+
+        const collectionHolderTwo = document.querySelector('ul.pictures')
+        collectionHolderTwo.appendChild(addTagLinkTwo)
+
+        const addFormToCollectionTwo = (e) => {
+            e.preventDefault();
+            const collectionHolderTwo = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+
+            const item = document.createElement('li');
+
+            item.innerHTML = collectionHolderTwo
+                .dataset
+                .prototype
+                .replace(
+                /__name__/g,
+                collectionHolderTwo.dataset.index
+                );
+
+            collectionHolderTwo.appendChild(item);
+
+            collectionHolderTwo.dataset.index++;
+        }
+
+        addTagLinkTwo.addEventListener("click", addFormToCollectionTwo)
+    </script> #}
+    <style>
+        .add_tag_list {
+            box-sizing: border-box;
+            -webkit-appearance: none;
+                -moz-appearance: none;
+                    appearance: none;
+            background-color: transparent;
+            border: 2px solid #e74c3c;
+            border-radius: 0.6em;
+            color: #e74c3c;
+            cursor: pointer;
+            display: flex;
+            align-self: center;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1;
+            margin: 20px;
+            padding: 1.2em 2.8em;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+        }
+        .add_tag_list_1 {
+            box-sizing: border-box;
+            -webkit-appearance: none;
+                -moz-appearance: none;
+                    appearance: none;
+            background-color: transparent;
+            border: 2px solid #ef8b80;
+            border-radius: 0.6em;
+            color: #ef8b80;
+            cursor: pointer;
+            display: flex;
+            align-self: center;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1;
+            margin: 20px;
+            padding: 1.2em 2.8em;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+        }
+
+        .add_tag_list:hover, .add_tag_list:focus {
+            color: #fff;
+            background-image: linear-gradient(45deg, #f1c40f 50%, transparent 88%);
+            outline: 0;
+        }
+        .add_tag_list_1:hover, .add_tag_list_1:focus {
+            color: #fff;
+            background-image: linear-gradient(45deg, #efc380 50%, transparent 88%);
+            outline: 0;
+        }
+    </style>
+{% endblock %}
+

@@ -24,7 +24,7 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/{id}/delete', name: 'delete_Post')]
-    public function DeletePost(Listing $post,Listingrepository $listingRepository): RedirectResponse
+    public function DeletePost(Listing $post): RedirectResponse
     {
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($post);
@@ -33,7 +33,6 @@ class AdminController extends AbstractController
 
     }
 
-    
 
     
 }
